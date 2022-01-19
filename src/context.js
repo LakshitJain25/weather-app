@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 // const {REACT_APP_WEATHER_API_KEY} = process.env
-const url = "http://api.weatherapi.com/v1/current.json?key=" +  "1bc80252f3614d18ab904131220601" + "&q="
-console.log(url)
+const url = "https://api.weatherapi.com/v1/current.json?key=" +  "1bc80252f3614d18ab904131220601" + "&q="
 const AppContext = React.createContext()
 
 
