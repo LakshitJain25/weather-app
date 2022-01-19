@@ -8,10 +8,6 @@ function App() {
   if (show) { weatherElement = <Weather /> }
   else { weatherElement = null }
 
-  React.useEffect(() => {
-    document.title = 'weather app'
-}, []);
-
   return (
     <>
       <Home />
