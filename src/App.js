@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Home from "./pages/Home";
+import Weather from "./pages/Weather";
+import { useGlobalContext } from "./context";
 function App() {
+  const { show } = useGlobalContext()
+  let weatherElement = null
+  if (show) { weatherElement = <Weather /> }
+  else { weatherElement = null }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Home />
+      {weatherElement}
+
+    </>
   );
 }
 

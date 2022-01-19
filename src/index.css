@@ -1,13 +1,655 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: "M PLUS Rounded 1c", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url("../public/Dosis-ExtraBold.ttf");
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+}
+
+#root {
+  height: 100%;
+  display: flex;
+}
+
+/* ===============================================search=============================================================== */
+.search-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  min-height: 100%;
+  background-image: url("../public/nature-3.jpg");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  width: 100%;
+  transition: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.half {
+  width: 50%;
+  max-height: 50%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.half nav h2 {
+  font-size: 2.15rem;
+  font-weight: 600;
+  text-shadow: 0px 1px 8px rgba(150, 150, 150, 0.69);
+}
+
+.half nav p {
+  font-size: 1.15rem;
+}
+
+nav {
+  display: flex;
+  height: min-content;
+  padding: 0.5rem 0;
+  grid-column: 2/12;
+  justify-content: space-between;
+  align-items: center;
+  color: #384047;
+}
+
+nav h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-shadow: 0px 1px 8px rgba(150, 150, 150, 0.69);
+}
+
+nav p {
+  font-size: 1.5rem;
+  color: #fff;
+  background: #0e1a21b4;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+
+.search {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  grid-column: 2/12;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-form {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 3rem;
+  width: max-content;
+  background: #0e1a21b4;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  /* height:100%; */
+}
+.search-form p {
+  position: absolute;
+  bottom: 25px;
+  font-weight: 600;
+  color: rgb(214, 5, 5);
+  font-size: 1.2rem;
+}
+.search label {
+  /* color: #e2e8f5; */
+  color: #fff;
+  font-size: 2.43rem;
+  height: min-content;
+  margin-bottom: -0.8rem;
+}
+
+.search .line {
+  width: 50%;
+  height: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: #fff;
+  margin: 2rem 0;
+}
+
+.search .loading {
+  animation: loading 1s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.search .input-bar {
+  position: relative;
+  color: #fff;
+  width: 75%;
+  height: min-content;
+}
+
+.search .input-bar input {
+  /* background: #15202710 ; */
+  /* background:rgba(255, 255, 255, 0.247); */
+  color: #fff;
+  border: none;
+  backdrop-filter: blur(0px);
+  width: 100%;
+  border-radius: 50px;
+  height: 40px;
+  font-size: 1.2rem;
+  /* margin-top:2rem; */
+  padding: 0.8rem;
+  box-shadow: 0px 0px 40px -1px rgba(255, 255, 255, 0.247) inset;
+  /* box-shadow: 0px 0px 4px -1px rgba(255, 255, 255, 0.247); */
+  background: transparent;
+  transition: 0.3s;
+}
+
+.search .input-bar input:focus {
+  /* background: #15202710 ; */
+  /* background:rgba(255, 255, 255, 0.247); */
+  outline: none;
+  box-shadow: 0px 0px 4px -1px rgba(255, 255, 255, 0.247);
+  font-size: 1.4rem;
+}
+
+.search .input-bar .icon {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-5%);
+  right: 5%;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.26);
+}
+
+@media (max-width: 1024px) {
+  .half nav h2 {
+    font-size: 1.85rem;
+  }
+
+  .half nav p {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .half .search-form {
+    padding: 0rem 1rem;
+    /* height:100%; */
+  }
+  .search-form p {
+    font-size: 1rem;
+  }
+  .search label {
+    font-size: 2.03rem;
+  }
+}
+
+/* ===============================================Temprature=============================================================== */
+
+.temprature-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #202a31;
+}
+
+.weather-heading {
+  font-size: 5rem;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 13%);
+  border-radius: 20px;
+  padding: 2.4rem 2rem;
+}
+
+.card .temprature {
+  font-size: 3rem;
+}
+
+.card .condition {
+  display: flex;
+  font-size: 1.65rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.condition .text {
+  margin-right: 0.3rem;
+}
+.details-card {
+  text-align: start;
+}
+
+.details {
+  /* width:80%; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  /* justify-content: start; */
+}
+
+.details .detail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.detail h3 {
+  font-size: 1.3rem;
+  margin-right: 0.3rem;
+}
+
+.detail p {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 1024px) {
+  .weather-heading {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 13%);
+    border-radius: 20px;
+    padding: 2rem 1.2rem;
+  }
+
+  .card .temprature {
+    font-size: 2.12rem;
+  }
+
+  .card .condition {
+    text-align: center;
+    display: flex;
+    font-size: 1.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card img {
+    height: auto;
+  }
+
+  .condition .text {
+    margin-right: 0.3rem;
+  }
+
+  .detail h3 {
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .detail p {
+    font-size: 1rem;
+  }
+}
+
+/* ===========================================================MOBILE ORIENTATION=================================================== */
+
+@media (max-width: 780px) {
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-image: url("../public/nature-3.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: top;
+    width: 100%;
+    transition: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .half {
+    min-height: 38%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 0px;
+  }
+
+  .half nav h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    text-shadow: 0px 1px 8px rgba(150, 150, 150, 0.69);
+  }
+
+  .half nav p {
+    font-size: 0.75rem;
+  }
+
+  nav {
+    padding: 1rem 0;
+  }
+
+  nav h2 {
+    font-size: 1.78rem;
+  }
+
+  .half .search {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-90%);
+    grid-column: 2/12;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .half .search-form {
+    width: 100%;
+    height: min-content;
+    padding: 0.2rem 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .search-form {
+    width: 100%;
+    height: min-content;
+    padding: 3rem 1rem;
+  }
+  .search-form p {
+    position: absolute;
+    top:-74%;
+    transform: translateY(50%);
+    font-weight: 600;
+    color: rgb(214, 5, 5);
+    font-size: 0.75rem;
+  }
+  .search label {
+    /* color: #e2e8f5; */
+    color: #fff;
+    font-size: 1.73rem;
+    height: min-content;
+    /* margin-bottom: -0.8rem; */
+    margin-bottom: 0.5rem;
+  }
+
+  .search .line {
+    width: 50%;
+    height: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: #fff;
+    margin: 0.6rem 0;
+    margin-top: 0.8rem;
+    display: none;
+  }
+
+  .search .loading {
+    animation: loading 1s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+  }
+  .search .input-bar input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .search .input-bar input:focus {
+    font-size: 1.2rem;
+  }
+
+  .search .input-bar .icon {
+    font-size: 1rem;
+  }
+
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.26);
+  }
+
+  .temprature-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    /* align-items: flex-start; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    color: #202a31;
+  }
+
+  .weather-heading {
+    margin: 0.64rem;
+    font-size: 3rem;
+  }
+
+  .info {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .card {
+    width: max-content;
+    height: max-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 13%);
+    border-radius: 20px;
+    padding: 1rem;
+  }
+
+  
+  .card .temprature {
+    font-size: 1.75rem;
+  }
+  
+  .card .condition {
+    font-size: 1.25rem;
+  }
+
+  .card img{
+    height:40px;
+  }
+  
+  .condition .text {
+    margin-right: 0.1rem;
+  }
+  .details-card {
+    text-align: start;
+  }
+
+  .detail h3 {
+    font-size: 1.07rem;
+    margin-right: 0.3rem;
+  }
+  
+  .detail p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 440px) {
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .half .search label {
+    color: #fff;
+    font-size: 1.23rem;
+    height: min-content;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-form p {
+    position: absolute;
+    top:-74%;
+    transform: translateY(50%);
+    font-weight: 600;
+    color: rgb(214, 5, 5);
+    font-size: 0.75rem;
+  }
+  .search label {
+    color: #fff;
+    font-size: 1.73rem;
+    height: min-content;
+    margin-bottom: 0.5rem;
+  }
+
+  .search .input-bar {
+    width: 83%;
+  }
+  .search .input-bar input:focus {
+    font-size: 1.2rem;
+  }
+
+  .search .input-bar .icon {
+    font-size: 1rem;
+  }
+
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.26);
+  }
+
+  .temprature-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    /* align-items: flex-start; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    color: #202a31;
+  }
+
+  .weather-heading {
+    margin: 0.64rem;
+    font-size: 2.5rem;
+  }
+
+  .info {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .card {
+    width: max-content;
+    height: max-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 13%);
+    border-radius: 20px;
+    padding: 0.5rem;
+  }
+
+
+  .card .temprature {
+    font-size: 1.5rem;
+  }
+  
+  .card .condition {
+    font-size: 1.25rem;
+  }
+
+  .card img{
+    height:35px;
+  }
+  
+  .condition .text {
+    margin-right: 0.3rem;
+  }
+  .details-card {
+    text-align: start;
+  }
+  
+.info{
+  flex-direction: column;
+  height:76%;
+  justify-content: space-between;
+}
+  .detail h3 {
+    font-size: 0.97rem;
+    margin-right: 0.3rem;
+  }
+  
+  .detail p {
+    font-size: 0.8rem;
+  }
 }
