@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/weather-app/static/css/main.b29cbe70.css",
-    "main.js": "/weather-app/static/js/main.44ed39ff.js",
+    "main.js": "/weather-app/static/js/main.850a0121.js",
     "static/media/nature-3.jpg": "/weather-app/static/media/nature-3.20283bb6c781263926f8.jpg",
     "static/media/Dosis-ExtraBold.ttf": "/weather-app/static/media/Dosis-ExtraBold.a1458bc56bcb1f55edf1.ttf",
     "index.html": "/weather-app/index.html",
     "main.b29cbe70.css.map": "/weather-app/static/css/main.b29cbe70.css.map",
-    "main.44ed39ff.js.map": "/weather-app/static/js/main.44ed39ff.js.map"
+    "main.850a0121.js.map": "/weather-app/static/js/main.850a0121.js.map"
   },
   "entrypoints": [
     "static/css/main.b29cbe70.css",
-    "static/js/main.44ed39ff.js"
+    "static/js/main.850a0121.js"
   ]
 }
