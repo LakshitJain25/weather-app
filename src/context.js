@@ -22,7 +22,6 @@ const AppProvider = ({ children }) => {
             }
             console.log(data)
             setWeatherInfo({
-            pm2_5: data.current.air_quality.pm2_5,
             condition:data.current.condition.text,
             icon:data.current.condition.icon,
             cloud:data.current.cloud,
